@@ -19,6 +19,7 @@ public class AnimationController : MonoBehaviour
         right = 4,
         fowardRun = 5,
         jump = 6,
+        attack = 7,
     }
     // Start is called before the first frame update
     void Start()
@@ -62,5 +63,8 @@ public class AnimationController : MonoBehaviour
 
         else if (move == Vector3.zero)
             animator.SetInteger("playerMove", (int)playerMove.idle);
+
+        if (Input.GetKey(KeyCode.Mouse0))
+            animator.SetInteger("playerMove", (int)playerMove.attack);
     }
 }
